@@ -1,0 +1,15 @@
+<div class="controls">
+  <label for="author-select">Choose an Author:</label>
+  <select id="author-select" (change)="onAuthorChange($event)">
+    <option value="">All Authors</option>
+    <option *ngFor="let author of authors" [value]="author">{{ author }}</option>
+  </select>
+</div>
+
+<div id="grid" class="grid-container">
+  <div class="card" *ngFor="let image of filteredImages">
+    <img [src]="image.download_url" [alt]="image.author" class="image" loading="lazy">
+    <h3>{{ image.author }}</h3>
+    <p>Photo by {{ image.author }}</p>
+  </div>
+</div>
